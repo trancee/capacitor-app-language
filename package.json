@@ -1,5 +1,5 @@
 {
-  "name": "@capacitor-community/app-language",
+  "name": "capacitor-app-language",
   "version": "0.0.1",
   "description": "Per-app language preferences",
   "main": "dist/plugin.cjs.js",
