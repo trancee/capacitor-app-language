@@ -52,6 +52,15 @@ export interface AppLanguagePlugin {
    * @since 1.0.0
    */
   setOverrideLocaleConfig(options: LocaleConfigOptions): Promise<void>;
+
+  /**
+   * Shows settings to allow configuration of per application locale.
+   *
+   * Only available for iOS and Android API 33 and later.
+   *
+   * @since 1.0.0
+   */
+  openSettings(): Promise<void>;
 }
 
 export type LocalesOptions = {

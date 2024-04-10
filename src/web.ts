@@ -44,4 +44,8 @@ export class AppLanguageWeb extends WebPlugin implements AppLanguagePlugin {
   async setOverrideLocaleConfig(options?: LocaleConfigOptions): Promise<void> {
     console.info('setOverrideLocaleConfig', options);
   }
+
+  async openSettings(): Promise<void> {
+    console.info('openSettings');
+  }
 }

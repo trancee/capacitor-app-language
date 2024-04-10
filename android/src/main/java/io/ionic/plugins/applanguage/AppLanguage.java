@@ -2,8 +2,11 @@ package io.ionic.plugins.applanguage;
 
 import android.app.LocaleConfig;
 import android.app.LocaleManager;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
+import android.provider.Settings;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.LocaleManagerCompat;
@@ -53,6 +56,20 @@ public class AppLanguage {
         AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList());
     }
 
+    public String getSystemLocales() {
+        Log.i("getSystemLocales", "");
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            LocaleList locales = plugin.getContext().getSystemService(LocaleManager.class).getSystemLocales();
+
+            return locales.toLanguageTags();
+        } else {
+            LocaleListCompat locales = LocaleManagerCompat.getSystemLocales(plugin.getContext());
+
+            return locales.toLanguageTags();
+        }
+    }
+
     public AppLocaleConfig getOverrideLocaleConfig() throws UnsupportedOperationException {
         Log.i("getOverrideLocaleConfig", "");
 
@@ -89,17 +106,16 @@ public class AppLanguage {
         }
     }
 
-    public String getSystemLocales() {
-        Log.i("getSystemLocales", "");
+    public void openSettings() {
+        Log.i("openSettings", "");
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            LocaleList locales = plugin.getContext().getSystemService(LocaleManager.class).getSystemLocales();
+            Intent intent = new Intent(Settings.ACTION_APP_LOCALE_SETTINGS);
+            intent.setData(Uri.parse("package:${context.packageName}"));
 
-            return locales.toLanguageTags();
+            plugin.getActivity().startActivity(intent);
         } else {
-            LocaleListCompat locales = LocaleManagerCompat.getSystemLocales(plugin.getContext());
-
-            return locales.toLanguageTags();
+            throw new UnsupportedOperationException("Only available on Android API 33 and later.");
         }
     }
 }

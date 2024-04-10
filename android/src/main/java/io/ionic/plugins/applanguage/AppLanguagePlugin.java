@@ -61,6 +61,25 @@ public class AppLanguagePlugin extends Plugin {
     }
 
     @PluginMethod
+    public void getSystemLocales(PluginCall call) {
+        JSObject result = new JSObject();
+
+        String[] locales = implementation.getSystemLocales().split(",");
+
+        if (locales.length > 0) {
+            JSArray jsLocales = new JSArray();
+
+            for (String locale : locales) {
+                jsLocales.put(locale);
+            }
+
+            result.put("locales", jsLocales);
+        }
+
+        call.resolve(result);
+    }
+
+    @PluginMethod
     public void getOverrideLocaleConfig(PluginCall call) {
         try {
             JSObject result = new JSObject();
@@ -108,21 +127,9 @@ public class AppLanguagePlugin extends Plugin {
     }
 
     @PluginMethod
-    public void getSystemLocales(PluginCall call) {
-        JSObject result = new JSObject();
+    public void openSettings(PluginCall call) {
+        implementation.openSettings();
 
-        String[] locales = implementation.getSystemLocales().split(",");
-
-        if (locales.length > 0) {
-            JSArray jsLocales = new JSArray();
-
-            for (String locale : locales) {
-                jsLocales.put(locale);
-            }
-
-            result.put("locales", jsLocales);
-        }
-
-        call.resolve(result);
+        call.resolve();
     }
 }

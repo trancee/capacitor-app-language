@@ -21,6 +21,7 @@ npx cap sync
 * [`getSystemLocales()`](#getsystemlocales)
 * [`getOverrideLocaleConfig()`](#getoverridelocaleconfig)
 * [`setOverrideLocaleConfig(...)`](#setoverridelocaleconfig)
+* [`openSettings()`](#opensettings)
 * [Type Aliases](#type-aliases)
 * [Enums](#enums)
 
@@ -127,6 +128,21 @@ Only available for Android API 34 and later.
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#localesoptions">LocalesOptions</a></code> |
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### openSettings()
+
+```typescript
+openSettings() => Promise<void>
+```
+
+Shows settings to allow configuration of per application locale.
+
+Only available for iOS and Android API 33 and later.
 
 **Since:** 1.0.0
 
