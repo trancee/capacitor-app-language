@@ -9,10 +9,31 @@ import Capacitor
 public class AppLanguagePlugin: CAPPlugin {
     private let implementation = AppLanguage()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
+    @objc func getApplicationLocales(_ call: CAPPluginCall) {
         call.resolve([
-            "value": implementation.echo(value)
+            "locales": implementation.getApplicationLocales()
         ])
+    }
+
+    @objc func setApplicationLocales(_ call: CAPPluginCall) {
+        call.unimplemented("Not implemented on iOS.")
+    }
+
+    @objc func resetApplicationLocales(_ call: CAPPluginCall) {
+        call.unimplemented("Not implemented on iOS.")
+    }
+
+    @objc func getSystemLocales(_ call: CAPPluginCall) {
+        call.resolve([
+            "locales": implementation.getSystemLocales()
+        ])
+    }
+
+    @objc func getOverrideLocaleConfig(_ call: CAPPluginCall) {
+        call.unimplemented("Not implemented on iOS.")
+    }
+
+    @objc func setOverrideLocaleConfig(_ call: CAPPluginCall) {
+        call.unimplemented("Not implemented on iOS.")
     }
 }

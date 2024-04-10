@@ -39,7 +39,7 @@ Returns the UI locales for the calling app.
 
 **Returns:** <code>Promise&lt;<a href="#localesresult">LocalesResult</a>&gt;</code>
 
-**Since:** 0.0.1
+**Since:** 1.0.0
 
 --------------------
 
@@ -54,11 +54,13 @@ Sets the UI locales for the calling app.
 
 Note: Pass an empty locales list to reset to the system locale.
 
+Only available for Android.
+
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#localesoptions">LocalesOptions</a></code> |
 
-**Since:** 0.0.1
+**Since:** 1.0.0
 
 --------------------
 
@@ -71,7 +73,9 @@ resetApplicationLocales() => Promise<void>
 
 Resets the app locale to the system locale.
 
-**Since:** 0.0.1
+Only available for Android.
+
+**Since:** 1.0.0
 
 --------------------
 
@@ -86,7 +90,7 @@ Returns the current system locales, ignoring app-specific overrides.
 
 **Returns:** <code>Promise&lt;<a href="#localesresult">LocalesResult</a>&gt;</code>
 
-**Since:** 0.0.1
+**Since:** 1.0.0
 
 --------------------
 
@@ -99,9 +103,11 @@ getOverrideLocaleConfig() => Promise<LocaleConfigResult>
 
 Returns the override `LocaleConfig` for the calling app.
 
+Only available for Android API 34 and later.
+
 **Returns:** <code>Promise&lt;<a href="#localeconfigresult">LocaleConfigResult</a>&gt;</code>
 
-**Since:** 0.0.1
+**Since:** 1.0.0
 
 --------------------
 
@@ -116,11 +122,13 @@ Sets the override `LocaleConfig` for the calling app.
 
 Note: Only the app itself with the same user can override its own `LocaleConfig`.
 
+Only available for Android API 34 and later.
+
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#localesoptions">LocalesOptions</a></code> |
 
-**Since:** 0.0.1
+**Since:** 1.0.0
 
 --------------------
 
@@ -130,17 +138,17 @@ Note: Only the app itself with the same user can override its own `LocaleConfig`
 
 #### LocalesResult
 
-<code>{ /** * Returns the locales supported by the specified application. * * @since 0.0.1 */ locales?: string[]; }</code>
+<code>{ /** * Returns the locales supported by the specified application. * * @since 1.0.0 */ locales?: string[]; }</code>
 
 
 #### LocalesOptions
 
-<code>{ /** * The list of locales. * * @since 0.0.1 */ locales: string[]; }</code>
+<code>{ /** * The list of locales. * * @since 1.0.0 */ locales: string[]; }</code>
 
 
 #### LocaleConfigResult
 
-<code><a href="#localesresult">LocalesResult</a> | { /** * Get the status of reading the resource file where the `LocaleConfig` was stored. * * @since 0.0.1 */ status: <a href="#status">Status</a>; }</code>
+<code><a href="#localesresult">LocalesResult</a> | { /** * Get the status of reading the resource file where the `LocaleConfig` was stored. * * @since 1.0.0 */ status: <a href="#status">Status</a>; }</code>
 
 
 #### LocaleConfigOptions
@@ -155,8 +163,8 @@ Note: Only the app itself with the same user can override its own `LocaleConfig`
 
 | Members              | Value          | Description                                                                              | Since |
 | -------------------- | -------------- | ---------------------------------------------------------------------------------------- | ----- |
-| **`SUCCESS`**        | <code>0</code> | Succeeded reading the `LocaleConfig` structure stored in an XML file.                    | 0.0.1 |
-| **`NOT_SPECIFIED`**  | <code>1</code> | No `android:localeConfig` tag on pointing to an XML file that stores the `LocaleConfig`. | 0.0.1 |
-| **`PARSING_FAILED`** | <code>2</code> | Malformed input in the XML file where the `LocaleConfig` was stored.                     | 0.0.1 |
+| **`SUCCESS`**        | <code>0</code> | Succeeded reading the `LocaleConfig` structure stored in an XML file.                    | 1.0.0 |
+| **`NOT_SPECIFIED`**  | <code>1</code> | No `android:localeConfig` tag on pointing to an XML file that stores the `LocaleConfig`. | 1.0.0 |
+| **`PARSING_FAILED`** | <code>2</code> | Malformed input in the XML file where the `LocaleConfig` was stored.                     | 1.0.0 |
 
 </docgen-api>
