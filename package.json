@@ -1,7 +1,7 @@
 {
   "name": "@capacitor-community/app-language",
   "version": "0.0.1",
-  "description": "Use supported languages to system settings for Android",
+  "description": "Per-app language preferences",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
