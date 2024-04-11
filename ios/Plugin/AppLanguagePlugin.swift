@@ -36,4 +36,10 @@ public class AppLanguagePlugin: CAPPlugin {
     @objc func setOverrideLocaleConfig(_ call: CAPPluginCall) {
         call.unimplemented("Not implemented on iOS.")
     }
+
+    @objc func openSettings(_ call: CAPPluginCall) {
+        implementation.openSettings()
+
+        call.resolve()
+    }
 }
