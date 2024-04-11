@@ -20,9 +20,9 @@ public class AppLanguage {
         this.plugin = plugin;
     }
 
-    public String getApplicationLocales() {
-        Log.i("getApplicationLocales", "");
+    public void initialize() {}
 
+    public String getApplicationLocales() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             LocaleList locales = plugin
                 .getContext()
@@ -30,13 +30,11 @@ public class AppLanguage {
                 .getApplicationLocales(plugin.getContext().getPackageName());
 
             return locales.toLanguageTags();
-            /*
-        } else {
-            LocaleListCompat locales =
-                    LocaleManagerCompat.getApplicationLocales(this.context);
+            // } else {
+            //     LocaleListCompat locales =
+            //             LocaleManagerCompat.getApplicationLocales(this.context);
 
-            return locales.toLanguageTags();
-        */
+            //     return locales.toLanguageTags();
         } else {
             LocaleListCompat locales = AppCompatDelegate.getApplicationLocales();
 
@@ -45,20 +43,14 @@ public class AppLanguage {
     }
 
     public void setApplicationLocales(String locales) {
-        Log.i("setApplicationLocales", locales);
-
         AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(locales));
     }
 
     public void resetApplicationLocales() {
-        Log.i("resetApplicationLocales", "");
-
         AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList());
     }
 
     public String getSystemLocales() {
-        Log.i("getSystemLocales", "");
-
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             LocaleList locales = plugin.getContext().getSystemService(LocaleManager.class).getSystemLocales();
 
@@ -71,8 +63,6 @@ public class AppLanguage {
     }
 
     public AppLocaleConfig getOverrideLocaleConfig() throws UnsupportedOperationException {
-        Log.i("getOverrideLocaleConfig", "");
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             AppLocaleConfig result = new AppLocaleConfig();
 
@@ -90,32 +80,30 @@ public class AppLanguage {
 
             return result;
         } else {
-            throw new UnsupportedOperationException("Only available on Android API 34 and later.");
+            throw new UnsupportedOperationException("Only available on Android (>= 34) and later.");
         }
     }
 
     public void setOverrideLocaleConfig(String locales) throws UnsupportedOperationException {
-        Log.i("setOverrideLocaleConfig", locales);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             LocaleConfig localeConfig = new LocaleConfig(LocaleList.forLanguageTags(locales));
 
             plugin.getContext().getSystemService(LocaleManager.class).setOverrideLocaleConfig(localeConfig);
         } else {
-            throw new UnsupportedOperationException("Only available on Android API 34 and later.");
+            throw new UnsupportedOperationException("Only available on Android (>= 34) and later.");
         }
     }
 
     public void openSettings() {
-        Log.i("openSettings", "");
-
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            String packageName = plugin.getContext().getPackageName();
+
             Intent intent = new Intent(Settings.ACTION_APP_LOCALE_SETTINGS);
-            intent.setData(Uri.parse("package:${context.packageName}"));
+            intent.setData(Uri.parse("package:" + packageName));
 
             plugin.getActivity().startActivity(intent);
         } else {
-            throw new UnsupportedOperationException("Only available on Android API 33 and later.");
+            throw new UnsupportedOperationException("Only available on Android (>= 33) and later.");
         }
     }
 }

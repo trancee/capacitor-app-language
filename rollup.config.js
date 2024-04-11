@@ -7,6 +7,7 @@ export default {
       name: 'capacitorAppLanguage',
       globals: {
         '@capacitor/core': 'capacitorExports',
+        'i18n-js': 'i18n',
       },
       sourcemap: true,
       inlineDynamicImports: true,
@@ -18,5 +19,5 @@ export default {
       inlineDynamicImports: true,
     },
   ],
-  external: ['@capacitor/core'],
+  external: ['@capacitor/core', 'i18n-js'],
 };
