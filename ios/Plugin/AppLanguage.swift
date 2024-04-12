@@ -11,6 +11,10 @@ import SwiftUI
     }
 
     @objc public func openSettings() {
-        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        // Create the URL that deep links to your app's custom settings.
+        if let url: URL = .init(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+            // Ask the system to open that URL.
+            await UIApplication.shared.open(url)
+        }
     }
 }

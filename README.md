@@ -2,7 +2,13 @@
 
 Per-app language preferences
 
-https://developer.android.com/guide/topics/resources/app-languages
+### Reference
+
+#### Android
+[Per-app language preferences](https://developer.android.com/guide/topics/resources/app-languages)
+
+#### iOS
+[How to support per-app language settings in your app](https://developer.apple.com/news/?id=u2cfuj88)
 
 ## Install
 
