@@ -1,4 +1,4 @@
-# @capacitor-community/app-language
+# @capacitor-trancee/app-language
 
 Per-app language preferences
 
@@ -13,7 +13,7 @@ Per-app language preferences
 ## Install
 
 ```bash
-npm install @capacitor-community/app-language
+npm install @capacitor-trancee/app-language
 npx cap sync
 ```
 

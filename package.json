@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-app-language",
+  "name": "@capacitor-trancee/app-language",
   "version": "1.2.1",
   "description": "Per-app language preferences",
   "main": "dist/plugin.cjs.js",
