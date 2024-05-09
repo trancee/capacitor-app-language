@@ -181,7 +181,7 @@ Only available for iOS and Android (&gt;= 33) and later.
 ### addListener('languageChanged', ...)
 
 ```typescript
-addListener(eventName: 'languageChanged', listenerFunc: LanguageChangedListener) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: 'languageChanged', listenerFunc: LanguageChangedListener) => Promise<PluginListenerHandle>
 ```
 
 Called when the user's preferred language changes.
@@ -193,7 +193,7 @@ Only available for Web.
 | **`eventName`**    | <code>'languageChanged'</code>                                              |
 | **`listenerFunc`** | <code><a href="#languagechangedlistener">LanguageChangedListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 **Since:** 1.1.0
 

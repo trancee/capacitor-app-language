@@ -84,7 +84,7 @@ export interface AppLanguagePlugin {
   addListener(
     eventName: 'languageChanged',
     listenerFunc: LanguageChangedListener,
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
+  ): Promise<PluginListenerHandle>;
   /**
    * Remove all listeners for this plugin.
    *
