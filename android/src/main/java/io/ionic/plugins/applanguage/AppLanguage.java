@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.Settings;
-import android.util.Log;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.LocaleManagerCompat;
 import androidx.core.os.LocaleListCompat;
