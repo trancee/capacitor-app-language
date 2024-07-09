@@ -1,6 +1,6 @@
 {
   "name": "@capacitor-trancee/app-language",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Per-app language preferences",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -11,7 +11,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "CapacitorAppLanguage.podspec"
+    "CapacitorTranceeAppLanguage.podspec"
   ],
   "author": "Philipp Grosswiler",
   "license": "MIT",
