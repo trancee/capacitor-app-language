@@ -29,7 +29,7 @@ npx cap sync
 * [`getOverrideLocaleConfig()`](#getoverridelocaleconfig)
 * [`setOverrideLocaleConfig(...)`](#setoverridelocaleconfig)
 * [`openSettings()`](#opensettings)
-* [`addListener('languageChanged', ...)`](#addlistenerlanguagechanged)
+* [`addListener('languageChanged', ...)`](#addlistenerlanguagechanged-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#interfaces)
 * [Type Aliases](#type-aliases)

@@ -35,7 +35,8 @@ export class AppLanguageWeb extends WebPlugin implements AppLanguagePlugin {
   async getApplicationLocales(): Promise<LocalesResult> {
     const result: LocalesResult = {};
 
-    result.locales = this.i18n?.availableLocales;
+    const locale = this.i18n?.defaultLocale;
+    if (locale) result.locales = [locale];
 
     return result;
   }
@@ -53,7 +54,7 @@ export class AppLanguageWeb extends WebPlugin implements AppLanguagePlugin {
   async getSystemLocales(): Promise<LocalesResult> {
     const result: LocalesResult = {};
 
-    result.locales = navigator.languages.map(locale => locale);
+    result.locales = navigator.languages.map((locale) => locale);
 
     return result;
   }
